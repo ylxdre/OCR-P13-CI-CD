@@ -1,0 +1,19 @@
+[project]
+name = "oclettings2"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.6"
+dependencies = [
+    "django (==3.0)",
+    "flake8 (==3.7.0)",
+    "pytest-django (==3.9.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
