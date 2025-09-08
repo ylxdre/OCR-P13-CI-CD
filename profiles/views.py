@@ -7,6 +7,7 @@ def index(request):
     context = {'profiles_list': profiles_list}
     return render(request, 'profiles/index.html', context)
 
+
 def profile(request, username):
     profile = Profile.objects.get(user__username=username)
     context = {'profile': profile}
