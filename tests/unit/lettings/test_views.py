@@ -1,0 +1,19 @@
+import pytest
+from lettings.models import Address, Letting
+
+from django.test import Client
+from django.urls import reverse
+from bs4 import BeautifulSoup
+
+@pytest.mark.django_db
+def test_view_should_display_right_len_list(sample_letting):
+    """
+    test if the list displayed contains the right amount of objects
+    created in fixture
+    """
+    c = Client()
+    url = reverse('lettings_index')
+    response = c.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    li_tags = soup.find_all('li')
+    assert len(li_tags) == 2
