@@ -1,0 +1,6 @@
+[run]
+source = .
+omit = */test*,*000*,*conftest.py,*apps.py,*manage.py,*__init__.py,*asgi*,*wsgi*,*admin.py,*urls.py,*settings.py
+
+[report]
+omit = */test*,*000*,*conftest.py,*apps.py,*manage.py,*__init__.py,*asgi*,*wsgi*,*admin.py,*urls.py,*settings.py
