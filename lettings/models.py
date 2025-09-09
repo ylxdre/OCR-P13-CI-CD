@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator, MinLengthValidator
 
 class Address(models.Model):
     """
-    Details of the physical location of a property
+    Model of details for a physical location of a property
     """
 
     class Meta:
@@ -29,7 +29,7 @@ class Address(models.Model):
 
 class Letting(models.Model):
     """
-    Announce for a property to rent
+    Model of an announce for a property to rent
     """
     title = models.CharField(max_length=256)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
