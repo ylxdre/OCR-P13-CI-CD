@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from lettings.models import Letting
 import logging
 
@@ -31,6 +31,6 @@ def letting(request, letting_id):
         }
         print("that")
         return render(request, 'lettings/letting.html', context)
-    except:
+    except ValueError:
         logger.error(f"letting id : {letting_id} not found")
-        index(request)
+        return redirect('lettings_index')

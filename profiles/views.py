@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from profiles.models import Profile
 import logging
 
@@ -27,6 +27,6 @@ def profile(request, username):
         profile = Profile.objects.get(user__username=username)
         context = {'profile': profile}
         return render(request, 'profiles/profile.html', context)
-    except:
+    except (ValueError, Profile.DoesNotExist):
         logger.error(f"Username : {username} doesn't exist")
-        index(request)
+        return redirect('profiles_index')
