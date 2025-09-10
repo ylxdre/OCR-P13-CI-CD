@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from lettings.models import Letting
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -19,9 +23,14 @@ def letting(request, letting_id):
     :param request: None
     :return: render and display template HTML
     """
-    letting = Letting.objects.get(id=letting_id)
-    context = {
-        'title': letting.title,
-        'address': letting.address,
-    }
-    return render(request, 'lettings/letting.html', context)
+    try:
+        letting = Letting.objects.get(id=letting_id)
+        context = {
+            'title': letting.title,
+            'address': letting.address,
+        }
+        print("that")
+        return render(request, 'lettings/letting.html', context)
+    except:
+        logger.error(f"letting id : {letting_id} not found")
+        index(request)

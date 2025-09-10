@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from profiles.models import Profile
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -19,6 +23,10 @@ def profile(request, username):
     :param request: None
     :return: render and display template as HTML
     """
-    profile = Profile.objects.get(user__username=username)
-    context = {'profile': profile}
-    return render(request, 'profiles/profile.html', context)
+    try:
+        profile = Profile.objects.get(user__username=username)
+        context = {'profile': profile}
+        return render(request, 'profiles/profile.html', context)
+    except:
+        logger.error(f"Username : {username} doesn't exist")
+        index(request)

@@ -1,6 +1,10 @@
 import os
+import sentry_sdk
 
 from pathlib import Path
+from dotenv import load_dotenv, dotenv_values
+
+load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -118,3 +122,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Config Sentry
+sentry_sdk.init(
+    dsn=os.getenv("SENTRY_URL"),
+    send_default_pii=True,
+    enable_logs=True,
+)
