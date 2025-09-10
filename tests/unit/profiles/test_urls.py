@@ -11,6 +11,7 @@ def test_should_get_200_on_profile_index():
     response = c.get(url)
     assert response.status_code == 200
 
+
 @pytest.mark.django_db
 def test_should_get_200_on_profile_detail(sample_profile):
     """ test the server's response on a profile detail page """
@@ -18,4 +19,3 @@ def test_should_get_200_on_profile_detail(sample_profile):
     url = reverse('profile', kwargs={'username': "TestUser"})
     response = c.get(url)
     assert response.status_code == 200
-

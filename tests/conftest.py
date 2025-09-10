@@ -12,20 +12,20 @@ def sample_address():
     :return: tuple of Address
     """
     address1 = Address.objects.create(
-        number = 22,
-        street = "Quality Street",
-        city = "New-York",
-        state = "New-York",
-        zip_code = 10010,
-        country_iso_code = "US"
+        number=22,
+        street="Quality Street",
+        city="New-York",
+        state="New-York",
+        zip_code=10010,
+        country_iso_code="US"
     )
     address2 = Address.objects.create(
-        number = 18,
-        street = "Rue Cocotte",
-        city = "Paris",
-        state = "Ile-de-France",
-        zip_code = 75000,
-        country_iso_code = "FR"
+        number=18,
+        street="Rue Cocotte",
+        city="Paris",
+        state="Ile-de-France",
+        zip_code=75000,
+        country_iso_code="FR"
     )
     return address1, address2
 
@@ -38,12 +38,12 @@ def sample_letting(sample_address):
     :return: tuple of Lettings
     """
     letting = Letting.objects.create(
-        title = "Pretty thing",
-        address = sample_address[0],
+        title="Pretty thing",
+        address=sample_address[0],
     )
     letting2 = Letting.objects.create(
-        title = "Ugly thing",
-        address = sample_address[1],
+        title="Ugly thing",
+        address=sample_address[1],
     )
 
     return letting, letting2
@@ -57,16 +57,16 @@ def sample_profile():
     :return: tuple of Profiles
     """
     user = User.objects.create(
-        username = 'TestUser',
-        password = 'password',
+        username='TestUser',
+        password='password',
     )
     user2 = User.objects.create(
-        username = 'TestUser2',
-        password = 'password2',
+        username='TestUser2',
+        password='password2',
     )
     user3 = User.objects.create(
-        username = 'TestUser3',
-        password = 'password2',
+        username='TestUser3',
+        password='password2',
     )
     profile = Profile.objects.create(
         user=user,
