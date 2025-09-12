@@ -29,7 +29,6 @@ def letting(request, letting_id):
             'title': letting.title,
             'address': letting.address,
         }
-        print("that")
         return render(request, 'lettings/letting.html', context)
     except ValueError:
         logger.error(f"letting id : {letting_id} not found")
