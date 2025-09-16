@@ -30,6 +30,6 @@ def letting(request, letting_id):
             'address': letting.address,
         }
         return render(request, 'lettings/letting.html', context)
-    except ValueError:
+    except (ValueError, Letting.DoesNotExist):
         logger.error(f"letting id : {letting_id} not found")
         return redirect('lettings_index')
