@@ -27,6 +27,5 @@ EXPOSE 80
 
 CMD service nginx start && \
 	poetry run gunicorn --bind 127.0.0.1:8000 --env DJANGO_SETTINGS_MODULE=oc_lettings_site.settings oc_lettings_site.wsgi
-#CMD ["poetry", "run", "gunicorn", "--bind", "0.0.0.0:8080", "--env", "DJANGO_SETTINGS_MODULE=oc_lettings_site.settings", "oc_lettings_site.wsgi"]
 
  
