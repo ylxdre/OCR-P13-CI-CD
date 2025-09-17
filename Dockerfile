@@ -14,6 +14,10 @@ RUN poetry config virtualenvs.create false && \
 	poetry install --no-interaction --no-ansi --no-root && \
 	poetry add gunicorn
 
+ARG DJANGO_SECRET_KEY
+
+ENV DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
+
 COPY . .
 
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
