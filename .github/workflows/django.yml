@@ -51,6 +51,9 @@ jobs:
   build:
     needs: test
     runs-on: ubuntu-latest
+    env:
+        DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+        SENTRY_URL: ${{ secrets.SENTRY_URL}}
     
     steps:
        
@@ -60,9 +63,8 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
       with:
-        build-args: |
-          DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
-          SENTRY_URL=${{ secrets.SENTRY_URL}}
+        DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+        SENTRY_URL: ${{ secrets.SENTRY_URL}}
 
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
@@ -74,14 +76,14 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
+        DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+        SENTRY_URL: ${{ secrets.SENTRY_URL}}
         context: .
         push: true
         tags: ocr-p13
         cache-from: type=gha
         cache-to: type=gha,mode=max
-        build-args: |
-          DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
-          SENTRY_URL=${{ secrets.SENTRY_URL}}
+
         
         
 
