@@ -59,7 +59,7 @@ jobs:
     
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
-      with:
+      env:
         DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         SENTRY_URL: ${{ secrets.SENTRY_URL}}
 
@@ -72,10 +72,11 @@ jobs:
     
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
-      with:
-        context: .
+      env:
         DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         SENTRY_URL: ${{ secrets.SENTRY_URL}}
+      with:
+        context: .
         push: true
         tags: ocr-p13
         cache-from: type=gha
