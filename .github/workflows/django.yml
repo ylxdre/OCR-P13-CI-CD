@@ -71,7 +71,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ env.DOCKER_IMAGE_NAME }}:latest
+        tags: ocr-p13
         cache-from: type=gha
         cache-to: type=gha,mode=max 
 
