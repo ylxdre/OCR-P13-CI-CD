@@ -32,6 +32,12 @@ jobs:
 
     - name: Install dependencies with Poetry
       run: poetry install --no-interaction --no-root
+
+    - name: Set variables
+      run: |
+        touch .env
+        echo DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY >> .env
+        echo SENTRY_URL=$SENTRY_URL >> .env
              
     - name: Run Tests
       run: |
