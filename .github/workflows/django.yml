@@ -53,6 +53,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Set variables
+      env:
+        DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+        SENTRY_URL: ${{ secrets.SENTRY_URL}}
+        
     - name: Checkout repository
       uses: actions/checkout@v4
     
