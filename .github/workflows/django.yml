@@ -80,6 +80,7 @@ jobs:
         cache-to: type=gha,mode=max
         build-args: |
             DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
+            SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
             SENTRY_URL=${{ secrets.SENTRY_ULR }}
 
         
