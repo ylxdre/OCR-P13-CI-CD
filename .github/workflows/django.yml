@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "github-actions" ]
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -83,7 +87,6 @@ jobs:
         context: .
         push: true
         tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
         build-args: |
             DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
             SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
