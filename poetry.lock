@@ -207,9 +207,6 @@ files = [
     {file = "coverage-7.10.6.tar.gz", hash = "sha256:f644a3ae5933a552a29dbb9aa2f90c677a875f80ebea028e5a52a4f429044b90"},
 ]
 
-[package.dependencies]
-tomli = {version = "*", optional = true, markers = "python_full_version <= \"3.11.0a6\" and extra == \"toml\""}
-
 [package.extras]
 toml = ["tomli ; python_full_version <= \"3.11.0a6\""]
 
@@ -642,5 +639,5 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.9, <4.0"
-content-hash = "ff2e5437fe8f89479484f9df2dea16b0893c8dcee4f7641cf7af85becf2d1379"
+python-versions = ">=3.11"
+content-hash = "d6bea693ee3796b7ef8d12cef5b7d0a64658318efe488f344644d84b13f0ed2e"
