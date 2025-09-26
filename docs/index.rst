@@ -3,15 +3,38 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+==============================
 OC Lettings Site documentation
 ==============================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+--------------
+ylxdre OCR P13
+--------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
+
+Architecture
+============
+
+This Django project contains two main applications, with the following files  :
+
+* profiles
+    * views
+    * models
+    * templates
+* lettings
+    * views
+    * models
+    * templates
+.. note::
+    the `'settings.py'` file and the index base template and view are located under the base ``oc_lettings_site`` app
+
+Models, as usual, are manageable from the admin page.
+
+
+Fixed issues
+------------
+Linting is
 
