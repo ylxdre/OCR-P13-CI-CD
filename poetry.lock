@@ -415,6 +415,23 @@ pycodestyle = ">=2.5.0,<2.6.0"
 pyflakes = ">=2.1.0,<2.2.0"
 
 [[package]]
+name = "flake8-html"
+version = "0.4.3"
+description = "Generate HTML reports of flake8 violations"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "flake8-html-0.4.3.tar.gz", hash = "sha256:8b870299620cc4a06f73644a1b4d457799abeca1cc914c62ae71ec5bf65c79a5"},
+    {file = "flake8_html-0.4.3-py2.py3-none-any.whl", hash = "sha256:8f126748b1b0edd6cd39e87c6192df56e2f8655b0aa2bb00ffeac8cf27be4325"},
+]
+
+[package.dependencies]
+flake8 = ">=3.3.0"
+jinja2 = ">=3.1.0"
+pygments = ">=2.2.0"
+
+[[package]]
 name = "groundwork-sphinx-theme"
 version = "1.1.1"
 description = "Sphinx theme for groundwork projects (Based on flask_theme)"
@@ -1135,4 +1152,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11"
-content-hash = "2e4543288758566f1cb80c1caaf24cf3370f0ae9c0ea755a10b6a04558c8dfd5"
+content-hash = "e15940b904b675cacd13363f5011be1f5e8c3ad522bccc0471f47ba171334e0a"
