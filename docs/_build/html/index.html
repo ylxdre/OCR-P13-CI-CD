@@ -1,0 +1,213 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OC Lettings Site documentation &mdash; OC Lettings Site 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            OC Lettings Site
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">OC Lettings Site documentation</a><ul>
+<li><a class="reference internal" href="#ylxdre-ocr-p13">ylxdre OCR P13</a><ul>
+<li><a class="reference internal" href="#architecture">Architecture</a><ul>
+<li><a class="reference internal" href="#tests">Tests</a></li>
+<li><a class="reference internal" href="#fixed-issues">Fixed issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#logging-in-sentry">Logging in Sentry</a></li>
+<li><a class="reference internal" href="#ci-cd">CI/CD</a><ul>
+<li><a class="reference internal" href="#github">github</a></li>
+<li><a class="reference internal" href="#gitlab">gitlab</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#docker">Docker</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">OC Lettings Site</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">OC Lettings Site documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="oc-lettings-site-documentation">
+<h1>OC Lettings Site documentation<a class="headerlink" href="#oc-lettings-site-documentation" title="Link to this heading"></a></h1>
+<section id="ylxdre-ocr-p13">
+<h2>ylxdre OCR P13<a class="headerlink" href="#ylxdre-ocr-p13" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<section id="architecture">
+<h3>Architecture<a class="headerlink" href="#architecture" title="Link to this heading"></a></h3>
+<p>This Django project contains two main applications, with the following files  :</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>profiles</dt><dd><ul>
+<li><p>views</p></li>
+<li><p>models</p></li>
+<li><p>templates</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>lettings</dt><dd><ul>
+<li><p>views</p></li>
+<li><p>models</p></li>
+<li><p>templates</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>the <cite>‘settings.py’</cite> file and the index base template and view are located under the base <code class="docutils literal notranslate"><span class="pre">oc_lettings_site</span></code> app</p>
+</div>
+<p>Models, as usual, are manageable from the admin page.</p>
+<section id="tests">
+<h4>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h4>
+<div class="line-block">
+<div class="line">Tests are located in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory, in the <code class="docutils literal notranslate"><span class="pre">unit</span></code> subdirectory.</div>
+<div class="line">Then, there is a subfolder for every application, containing three files : <cite>test_models</cite>, <cite>test_urls</cite>, <cite>test_views</cite></div>
+</div>
+<p>Temporary db (popuplated with some sample objects) is created for testing purpose; you can see fixtures used for this
+in the <code class="docutils literal notranslate"><span class="pre">conftest.py</span></code>.</p>
+</section>
+<section id="fixed-issues">
+<h4>Fixed issues<a class="headerlink" href="#fixed-issues" title="Link to this heading"></a></h4>
+<div class="line-block">
+<div class="line">Linting is PEP8 compliant, see the HTML report in flake-report</div>
+<div class="line">Plural of Address objects appears now well on admin (addresses, with a Meta method)</div>
+<div class="line">There are 404 and 500 custom html template</div>
+<div class="line">Every class or function has doctrings</div>
+<div class="line">Test coverage is 100%</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=========================</span> <span class="n">tests</span> <span class="n">coverage</span> <span class="o">==========================</span>
+<span class="n">_______</span> <span class="n">coverage</span><span class="p">:</span> <span class="n">platform</span> <span class="n">linux</span><span class="p">,</span> <span class="n">python</span> <span class="mf">3.11.0</span><span class="o">-</span><span class="n">candidate</span><span class="o">-</span><span class="mi">1</span> <span class="n">_______</span>
+
+<span class="n">Name</span>                        <span class="n">Stmts</span>   <span class="n">Miss</span>  <span class="n">Cover</span>
+<span class="o">-----------------------------------------------</span>
+<span class="n">lettings</span><span class="o">/</span><span class="n">models</span><span class="o">.</span><span class="n">py</span>             <span class="mi">18</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">lettings</span><span class="o">/</span><span class="n">views</span><span class="o">.</span><span class="n">py</span>              <span class="mi">16</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">oc_lettings_site</span><span class="o">/</span><span class="n">views</span><span class="o">.</span><span class="n">py</span>       <span class="mi">3</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">profiles</span><span class="o">/</span><span class="n">models</span><span class="o">.</span><span class="n">py</span>              <span class="mi">7</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">profiles</span><span class="o">/</span><span class="n">views</span><span class="o">.</span><span class="n">py</span>              <span class="mi">16</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="o">-----------------------------------------------</span>
+<span class="n">TOTAL</span>                          <span class="mi">60</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="o">================</span> <span class="mi">15</span> <span class="n">passed</span><span class="p">,</span> <span class="mi">1024</span> <span class="n">warnings</span> <span class="ow">in</span> <span class="mf">0.87</span><span class="n">s</span> <span class="o">================</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="logging-in-sentry">
+<h3>Logging in Sentry<a class="headerlink" href="#logging-in-sentry" title="Link to this heading"></a></h3>
+<p>On render detailed profile or detailed letting, empty queryset raises an exception not catched by default. So a
+try-except block is inserted, and a logger is called to log this error in sentry;</p>
+<img alt="_images/screenSentry.png" src="_images/screenSentry.png" />
+</section>
+<section id="ci-cd">
+<h3>CI/CD<a class="headerlink" href="#ci-cd" title="Link to this heading"></a></h3>
+<section id="github">
+<h4>github<a class="headerlink" href="#github" title="Link to this heading"></a></h4>
+</section>
+<section id="gitlab">
+<h4>gitlab<a class="headerlink" href="#gitlab" title="Link to this heading"></a></h4>
+</section>
+</section>
+<section id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h3>
+<div class="line-block">
+<div class="line">You can retrieve the latest docker image from the DockerHub with the following command :</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docke</span> <span class="n">pull</span> <span class="mi">0</span><span class="n">yal0</span><span class="o">/</span><span class="n">oc_lettings_site</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, ylxdre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
