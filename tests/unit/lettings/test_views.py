@@ -1,6 +1,4 @@
 import pytest
-from lettings.models import Address, Letting
-
 from django.test import Client
 from django.urls import reverse
 from bs4 import BeautifulSoup
