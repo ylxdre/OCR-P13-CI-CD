@@ -19,6 +19,7 @@ dependencies = [
     "dotenv (>=0.9.9,<0.10.0)",
     "sphinx (>=8.2.3,<9.0.0)",
     "groundwork-sphinx-theme (>=1.1.1,<2.0.0)",
+    "sphinx-rtd-theme (>=3.0.2,<4.0.0)",
 ]
 
 
