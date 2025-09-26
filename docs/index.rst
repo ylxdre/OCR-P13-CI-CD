@@ -80,9 +80,17 @@ try-except block is inserted, and a logger is called to log this error in sentry
 
 CI/CD
 =====
+The main Github workflow contains the following actions :
+
+- 
+The pipeline has basically two main sections : test, and packaging/deploy (docker build and docker push)
+Project has CI on Gitlab and on Github. Both are distinguished by specific branches as described in the following
+sections
 
 github
 ------
+On the following repo :
+The related branch is github-action o
 
 gitlab
 ------
