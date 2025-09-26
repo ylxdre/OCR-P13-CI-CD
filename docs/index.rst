@@ -28,13 +28,47 @@ This Django project contains two main applications, with the following files  :
     * views
     * models
     * templates
-.. note::
+.. important::
     the `'settings.py'` file and the index base template and view are located under the base ``oc_lettings_site`` app
 
 Models, as usual, are manageable from the admin page.
 
 
+Tests
+-----
+
+| Tests are located in the ``tests`` directory, in the ``unit`` subdirectory.
+| Then, there is a subfolder for every application, containing three files : `test_models`, `test_urls`, `test_views`
+Temporary db (popuplated with some sample objects) is created for testing purpose; you can see fixtures used for this
+in the ``conftest.py``.
+
+
 Fixed issues
 ------------
-Linting is
+| Linting is PEP8 compliant, see the HTML report in flake-report
+| Plural of Address objects appears now well on admin (addresses, with a Meta method)
+| There are 404 and 500 custom html template
+| Every class or function has doctrings
+| Test coverage is 100%
+
+
+
+Logging in Sentry
+=================
+
+CI/CD
+=====
+
+github
+------
+
+gitlab
+------
+
+Docker
+======
+| You can retrieve the latest docker image from the DockerHub with the following command :
+
+..  code-block::
+    docker pull
 
