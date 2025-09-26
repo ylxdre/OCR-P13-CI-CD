@@ -51,10 +51,32 @@ Fixed issues
 | Every class or function has doctrings
 | Test coverage is 100%
 
+.. code-block::
+
+    ========================= tests coverage ==========================
+    _______ coverage: platform linux, python 3.11.0-candidate-1 _______
+
+    Name                        Stmts   Miss  Cover
+    -----------------------------------------------
+    lettings/models.py             18      0   100%
+    lettings/views.py              16      0   100%
+    oc_lettings_site/views.py       3      0   100%
+    profiles/models.py              7      0   100%
+    profiles/views.py              16      0   100%
+    -----------------------------------------------
+    TOTAL                          60      0   100%
+    ================ 15 passed, 1024 warnings in 0.87s ================
+
 
 
 Logging in Sentry
 =================
+On render detailed profile or detailed letting, empty queryset raises an exception not catched by default. So a
+try-except block is inserted, and a logger is called to log this error in sentry;
+
+.. image:: _static/screenSentry.png
+
+
 
 CI/CD
 =====
@@ -70,5 +92,6 @@ Docker
 | You can retrieve the latest docker image from the DockerHub with the following command :
 
 ..  code-block::
-    docker pull
+
+    docke pull 0yal0/oc_lettings_site:latest
 
