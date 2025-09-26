@@ -1,9 +1,8 @@
 import pytest
-from lettings.models import Address, Letting
-
 from django.test import Client
 from django.urls import reverse
 from bs4 import BeautifulSoup
+
 
 @pytest.mark.django_db
 def test_view_should_display_right_len_list(sample_letting):

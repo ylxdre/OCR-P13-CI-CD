@@ -13,7 +13,6 @@ class Address(models.Model):
         """
         verbose_name_plural = "Addresses"
 
-
     number = models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
     street = models.CharField(max_length=64)
     city = models.CharField(max_length=64)
@@ -24,7 +23,6 @@ class Address(models.Model):
     def __str__(self):
         """ Display object with basic address """
         return f'{self.number} {self.street}'
-
 
 
 class Letting(models.Model):

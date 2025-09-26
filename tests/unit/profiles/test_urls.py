@@ -19,4 +19,3 @@ def test_should_get_200_on_profile_detail(sample_profile):
     url = reverse('profile', kwargs={'username': "TestUser"})
     response = c.get(url)
     assert response.status_code == 200
-

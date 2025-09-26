@@ -15,7 +15,6 @@ def test_should_get_200_on_lettings_index():
 @pytest.mark.django_db
 def test_should_get_200_on_letting_detail(sample_letting):
     c = Client()
-    url = reverse('letting', kwargs={'letting_id':1})
+    url = reverse('letting', kwargs={'letting_id': 1})
     response = c.get(url)
     assert response.status_code == 200
-
