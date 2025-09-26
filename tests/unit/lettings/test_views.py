@@ -38,3 +38,4 @@ def test_detail_view_wrong_id_should_be_catched(sample_letting):
     url = reverse('letting', kwargs={'letting_id': 10})
     response = c.get(url)
     assert response['Location'] == reverse('lettings_index')
+
