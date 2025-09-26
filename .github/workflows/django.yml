@@ -41,7 +41,7 @@ jobs:
     - name: Run Tests
       env:
         DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-        SENTRY_URL: ${{ secrets.SENTRY_URL}}
+      
       run: |
         poetry run pytest --cov --cov-report=xml 
         
@@ -57,7 +57,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
         DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-        SENTRY_URL: ${{ secrets.SENTRY_URL}}
     
     steps:
        
@@ -103,6 +102,5 @@ jobs:
             ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
         - name: connect and pull
           run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && docker compose pull && docker compose up -d && exit"
-  
         - name: cleanup
           run: rm -rf ~/.ssh 
