@@ -101,5 +101,5 @@ Docker
 
 ..  code-block::
 
-    docke pull 0yal0/oc_lettings_site:latest
+    docker pull 0yal0/oc_lettings_site:latest
 
