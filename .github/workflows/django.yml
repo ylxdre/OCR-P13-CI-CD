@@ -81,7 +81,7 @@ jobs:
 
     - name: Short commit hash
       id: shart
-      run: echo "short-sha=$(echo ${GITHUB_SHA} | cut -c1-7)"
+      run: echo "short-sha=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_OUTPUT
 
     - name: Build and push Docker image
       id: push
