@@ -75,13 +75,11 @@ jobs:
 
     - name: Extract data from Docker
       id: meta
-      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-      with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}   
-
-    - name: Short commit hash
       run: |
         SHORT_SHA=$(echo "${{ github.sha }}" |cut -c1-7)
+      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}.${{ SHORT_SHA }}   
 
     - name: Build and push Docker image
       id: push
@@ -89,7 +87,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ steps.meta.outputs.tags }}.$SHORT_SHA
+        tags: ${{ steps.meta.outputs.tags }}
         build-args: |
             DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
 
