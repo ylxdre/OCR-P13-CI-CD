@@ -89,8 +89,8 @@ jobs:
       with:
         context: .
         push: true
-        tags: latest
-        label: ${{ steps.meta.outputs.tags }}.${{ steps.shart.outputs.short-sha }}
+        tags: ${{ steps.meta.outputs.tags }}
+        label: ${{ steps.shart.outputs.short-sha }}
         build-args: |
             DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
 
