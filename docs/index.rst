@@ -243,6 +243,11 @@ If you're logged into your Gitlab account, you can take a look to them here :
 
 - `gitlab pipelines <https://gitlab.com/yal-ocr-projects/p13/-/pipelines?scope=branches>`_
 
+The pipeline triggered when pushing gitlab-dockub branch on gitlab repo runs following jobs :
+
+- tests
+- build docker image (with two tags : commit hash shor and latest)
+- push both on the DockerHub : `0yal0/oc_lettings_site <https://hub.docker.com/r/0yal0/oc_lettings_site/tags>`_
 
 Docker
 ======
