@@ -90,7 +90,7 @@ jobs:
         context: .
         push: true
         tags: ${{ steps.meta.outputs.tags }}
-        label: ${{ steps.shart.outputs.short-sha }}
+        outputs: annotation-index.org.opencontainers.image.description=${{ steps.shart.outputs.short-sha }}
         build-args: |
             DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
 
