@@ -52,3 +52,4 @@ Orange County Lettings Website
 - make a query on the profiles table, `select user_id, favorite_city from
   OCR-P13-CI-CD_profile where favorite_city like 'B%';`
 - type `.quit` to exit
+
