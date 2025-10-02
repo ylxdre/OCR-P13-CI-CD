@@ -1,77 +1,60 @@
-## Résumé
+## Abstract
 
-Site web d'Orange County Lettings
+Orange County Lettings Website
 
-## Développement local
+## Local development
 
-### Prérequis
+### Requirements
 
-- Compte GitHub avec accès en lecture à ce repository
+- A github account with read access to this repo
 - Git CLI
 - SQLite3 CLI
-- Interpréteur Python, version 3.6 ou supérieure
+- Python 3.9 or higher
+- poetry
 
-Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell exécute l'interpréteur Python ci-dessus (à moins qu'un environnement virtuel ne soit activé).
-
-### macOS / Linux
-
-#### Cloner le repository
+#### Clone the repository
 
 - `cd /path/to/put/project/in`
-- `git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git`
+- `git clone https://github.com/ylxdre/OCR-P13-CI-CD.git`
 
-#### Créer l'environnement virtuel
+#### Activate virtual environment
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `python -m venv venv`
-- `apt-get install python3-venv` (Si l'étape précédente comporte des erreurs avec un paquet non trouvé sur Ubuntu)
-- Activer l'environnement `source venv/bin/activate`
-- Confirmer que la commande `python` exécute l'interpréteur Python dans l'environnement virtuel
-`which python`
-- Confirmer que la version de l'interpréteur Python est la version 3.6 ou supérieure `python --version`
-- Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel, `which pip`
-- Pour désactiver l'environnement, `deactivate`
+- `cd /path/to/OCR-P13-CI-CD`
+- `poetry env use python3.11`
+- `poetry env activate` and run the command displayed
+- To deactivate, just run `deactivate`
 
-#### Exécuter le site
+#### Launch the site
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `pip install --requirement requirements.txt`
+- `cd /path/to/OCR-P13-CI-CD`
+- `poetry env activate` and run the command displayed 
+- `poetry add $(cat requirements.txt)`
 - `python manage.py runserver`
-- Aller sur `http://localhost:8000` dans un navigateur.
-- Confirmer que le site fonctionne et qu'il est possible de naviguer (vous devriez voir plusieurs profils et locations).
+- Then go on `http://localhost:8000` in your favorite browser
 
 #### Linting
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `flake8`
+- `cd /path/to/OCR-P13-CI-CD`
+- `poetry run flake8`
 
-#### Tests unitaires
+#### Unit tests
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `pytest`
+- `cd /path/to/OCR-P13-CI-CD`
+- `poetry run pytest -v`
 
-#### Base de données
+#### Database
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- Ouvrir une session shell `sqlite3`
-- Se connecter à la base de données `.open oc-lettings-site.sqlite3`
-- Afficher les tables dans la base de données `.tables`
-- Afficher les colonnes dans le tableau des profils, `pragma table_info(Python-OC-Lettings-FR_profile);`
-- Lancer une requête sur la table des profils, `select user_id, favorite_city from
-  Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
-- `.quit` pour quitter
+- `cd /path/to/OCR-P13-CI-CD`
+- execute `sqlite3` to open a shell session (requires the sqlite3 package installed)
+- then connect to the database `.open oc-lettings-site.sqlite3`
+- display the tables by typing  `.tables`
+- display columns in the profiles table, `pragma table_info(OCR-P13-CI-CD_profile);`
+- make a query on the profiles table, `select user_id, favorite_city from
+  OCR-P13-CI-CD_profile where favorite_city like 'B%';`
+- type `.quit` to exit
 
-#### Panel d'administration
+#### Admin panel
 
-- Aller sur `http://localhost:8000/admin`
-- Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
+- Go to `http://localhost:8000/admin`
+- Connect with user `admin` and password `Abc1234!`
 
-### Windows
-
-Utilisation de PowerShell, comme ci-dessus sauf :
-
-- Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
-- Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`

@@ -1,3 +1,11 @@
+.gitignore
+docs/_build/
 **/__pycache__
 *.pyc
+.idea
+.coverage
+.env
+*.swp
+*.sqlite3
+oc-lettings-site.sqlite3
 venv
