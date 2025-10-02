@@ -1,4 +1,4 @@
-.. OC Lettings Site documentation master file, created by
+.. OC Lettings Site documentation master file, created by ylxdre
    sphinx-quickstart on Tue Sep 23 11:01:06 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -13,8 +13,18 @@ OC Lettings Site documentation
    :caption: Contents:
 
 
+Abstract
+========
+
    
 This Django project is an exercice and a part of the OCR Project 13. It's a basic application displaying a list of fictive estate properties and a list of users. 
+
+The goal was first to :
+
+- rework the architecture, fix linting, some issues, add docstrings and write tests
+- set up a CI/CD pipeline running tests, packaging and deployment
+
+
 
 Architecture
 ============
@@ -35,6 +45,56 @@ Architecture
     the `'settings.py'` file and the index base template and view are located under the base ``oc_lettings_site`` app
 
 Models, as usual, are manageable from the admin page.
+
+
+Models and DB
+-------------
+
+Lettings application
+^^^^^^^^^^^^^^^^^^^^
+Two objects :
+ 
+- Address
+
+	- *attributs* : number, street, city, state, zip_code, country_iso_code
+	
+- Letting
+
+	- *attributs* : title, address (OneToOneField to Address)
+
+
+Profiles application
+^^^^^^^^^^^^^^^^^^^^
+One object : 
+
+- Profile
+
+	- *attributs* : user (OneToOneField to User), favorite_city
+
+
+Tables
+^^^^^^
+
+.. code-block::
+
+	sqlite> pragma table_info(lettings_address);
+	0|id|INTEGER|1||1
+	1|number|integer unsigned|1||0
+	2|street|varchar(64)|1||0
+	3|city|varchar(64)|1||0
+	4|state|varchar(2)|1||0
+	5|zip_code|integer unsigned|1||0
+	6|country_iso_code|varchar(3)|1||0
+	
+	sqlite> pragma table_info(lettings_letting);
+	0|id|INTEGER|1||1
+	1|title|varchar(256)|1||0
+	2|address_id|INTEGER|1||0
+	
+	sqlite> pragma table_info(Profiles_profile);
+	0|id|INTEGER|1||1
+	1|favorite_city|varchar(64)|1||0
+	2|user_id|INTEGER|1||0
 
 
 Tests
@@ -70,6 +130,67 @@ Fixed issues
     TOTAL                          60      0   100%
     ================ 15 passed, 1024 warnings in 0.87s ================
 
+
+Install the project
+===================
+
+Requirements
+------------
+
+- A github account with read access to this repo
+- Git CLI 
+- SQLite3 CLI 
+- Python 3.9 or higher
+- poetry
+
+Clone the repository
+--------------------
+
+.. code-block::
+
+	cd /path/to/put/project/in
+	git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git
+	
+
+Activate virtual environment
+----------------------------
+
+.. code-block::
+
+	cd /path/to/OCR-P13-CI-CD
+	poetry env use python3.11
+	poetry env activate and run the command displayed
+
+To deactivate, just run ``deactivate``
+
+Launch the site
+---------------
+
+| ``cd /path/to/OCR-P13-CI-CD``
+| ``poetry env activate``
+
+- and run the command displayed 
+
+| ``poetry add $(cat requirements.txt)``
+| ``python manage.py runserver``
+
+- Then go on ``http://localhost:8000``
+
+
+Quickstart
+==========
+
+Populate the DB : add data
+--------------------------
+
+The easiest way is to do it from the admin panel
+
+| Connect to ``http://localhost:8000/admin`` 
+| with ``admin`` and ``Abc1234!``
+
+.. important::
+
+	note that this password has been changed on the published packages 
 
 
 Logging in Sentry

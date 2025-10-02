@@ -15,18 +15,18 @@ Orange County Lettings Website
 #### Clone the repository
 
 - `cd /path/to/put/project/in`
-- `git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git`
+- `git clone https://github.com/ylxdre/OCR-P13-CI-CD.git`
 
 #### Activate virtual environment
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `poetry env use python3.10`
+- `cd /path/to/OCR-P13-CI-CD`
+- `poetry env use python3.11`
 - `poetry env activate` and run the command displayed
 - To deactivate, just run `deactivate`
 
 #### Launch the site
 
-- `cd /path/to/Python-OC-Lettings-FR`
+- `cd /path/to/OCR-P13-CI-CD`
 - `poetry env activate` and run the command displayed 
 - `poetry add $(cat requirements.txt)`
 - `python manage.py runserver`
@@ -34,21 +34,21 @@ Orange County Lettings Website
 
 #### Linting
 
-- `cd /path/to/Python-OC-Lettings-FR`
+- `cd /path/to/OCR-P13-CI-CD`
 - `poetry run flake8`
 
 #### Unit tests
 
-- `cd /path/to/Python-OC-Lettings-FR`
+- `cd /path/to/OCR-P13-CI-CD`
 - `poetry run pytest -v`
 
 #### Database
 
-- `cd /path/to/Python-OC-Lettings-FR`
+- `cd /path/to/OCR-P13-CI-CD`
 - execute `sqlite3` to open a shell session (requires the sqlite3 package installed)
 - then connect to the database `.open oc-lettings-site.sqlite3`
 - display the tables by typing  `.tables`
-- display columns in the profiles table, `pragma table_info(Python-OC-Lettings-FR_profile);`
+- display columns in the profiles table, `pragma table_info(OCR-P13-CI-CD_profile);`
 - make a query on the profiles table, `select user_id, favorite_city from
-  Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
+  OCR-P13-CI-CD_profile where favorite_city like 'B%';`
 - type `.quit` to exit
