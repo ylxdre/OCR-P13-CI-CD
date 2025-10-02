@@ -2,7 +2,7 @@ import os
 import sentry_sdk
 
 from pathlib import Path
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
 
 load_dotenv()
 

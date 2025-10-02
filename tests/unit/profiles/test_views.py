@@ -17,6 +17,7 @@ def test_view_should_display_right_len_list(sample_profile):
     li_tags = soup.find_all('li')
     assert len(li_tags) == 3
 
+
 @pytest.mark.django_db
 def test_detail_view_with_wrong_username_should_be_catched(sample_profile):
     """
