@@ -17,6 +17,7 @@ def test_view_should_display_right_len_list(sample_letting):
     li_tags = soup.find_all('li')
     assert len(li_tags) == 2
 
+
 @pytest.mark.django_db
 def test_detail_view_should_display_right_title(sample_letting):
     """
@@ -27,6 +28,7 @@ def test_detail_view_should_display_right_title(sample_letting):
     response = c.get(url)
     assert "Pretty thing" in response.content.decode()
 
+
 @pytest.mark.django_db
 def test_detail_view_wrong_id_should_be_catched(sample_letting):
     """
@@ -36,4 +38,3 @@ def test_detail_view_wrong_id_should_be_catched(sample_letting):
     url = reverse('letting', kwargs={'letting_id': 10})
     response = c.get(url)
     assert response['Location'] == reverse('lettings_index')
-
